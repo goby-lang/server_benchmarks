@@ -1,10 +1,7 @@
 require 'rack'
  
-i = 0
 app = Proc.new do |env|
-  res = ['200', {'Content-Type' => 'text/html'}, ["#{i}"]]
-  i += 1
-  res
+  env = ['200', {'Content-Type' => 'text/html'}, ["Hello World"]]
 end
 
 run app

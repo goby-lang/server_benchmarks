@@ -2,11 +2,9 @@ require("net/simple_server")
 
 server = Net::SimpleServer.new("3000")
 
-i = 0
-
-server.mount("/") do |req, res|
-  res.body = i.to_s
-  i++
+server.get("/") do |req, res|
+  res.body = "Hello World"
+  res.set_header("Content-Type", "text/html; charset=utf-8")
 end
 
 server.start
